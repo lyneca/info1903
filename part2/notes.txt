@@ -1,8 +1,0 @@
-- Outliers
-	- Dec 22 1989
-		- Kempsey Bus Crash
-		- 35 Dead
-		- https://en.wikipedia.org/wiki/Kempsey_bus_crash
-	- Feb 3 2005
-		- Heavy rain
-		- https://bom.gov.au/climate/annual_sum/2005/page13-15.pdf
