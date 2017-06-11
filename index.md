@@ -15,36 +15,6 @@ a correlation between the two.
 - [Crash database legend](https://bitre.gov.au/statistics/safety/files/ARDD_Dictionary_V3.pdf) (pdf)
 - [Rain database](http://www.bom.gov.au/jsp/ncc/cdio/weatherData/av?p_display_type=dailyZippedDataFile&p_stn_num=086039&p_c=-1480557288&p_nccObsCode=136&p_startYear=2017) (csv)
 
-#### Data Description
-##### ARDD
-
-| Column | Type | Description |
-| --- | --- | --- |
-| `crashid` | `character(13)` | Internal crash ID |
-| `state` | `character varying(3)` | State that the crash occured in |
-| `day` | `integer` | Day of the crash |
-| `month` | `character varying(10)` | Month of the crash (long name format) |
-| `year` | `integer` | Year of the crash |
-| `hour` | `integer` | Hour of the crash |
-| `minute` | `integer` | Minute of the crash |
-| `crashtype` | `character` varying(16) | Internal type of the crash |
-| `fatalities` | `integer` | Number of fatalities |
-| `bus` | `boolean` | Was a bus involved? |
-| `heavytruck` | `boolean` | Was a heavy truck involved? |
-| `articulatedtruck` | `boolean` | Was an articulated truck involved? |
-| `speedlimit` | `integer` | The speed limit of the crash |
-
-##### BOM Rainfall
-
-| Column | Type | Description |
-| --- | --- | --- |
-| `year` | `integer` | Year of the measurement |
-| `month` | `integer` | Month of the measurement (in integer form) |
-| `day` | `integer` | Day of the measurement |
-| `rainfall` | `double precision` | Amount of rainfall |
-| `period` | `integer` | Period measured |
-| `quality` | `character(1)` | Quality of data |
-
 ### Analysis
 
 After setting up the data, I first graphed the rainfall over time and the crashes over time to see if I could spot any trends among the separate graphs:
@@ -82,6 +52,8 @@ I thought that this would help visualise the correlation, but it doesn't really 
 [![Graph of car crashes in Victoria over time with rainfall colourmap][graph4]][graph4]
 
 
+***TODO***: actually do some analysis
+
 [graph1]: assets/crashes_over_time.png
 [graph2]: assets/rainfall_over_time.png
 [graph3]: assets/rainfall_vs_deaths.png
@@ -95,7 +67,6 @@ or age. However, the process required to obtain and store this data is available
 methods for the other files.
 
 ---
-
 Due to the nature of the weather, I decided that getting the "total national rainfall"
 was not precise enough. Because the crash data sorted by state (and did not give a
 precise location), I decided to pick a state and use only crash data from that state.
@@ -110,7 +81,51 @@ somewhat near both the center of the state and the capital city, where I reasone
 most crashes would occur.
 
 ### Storing in PostgreSQL
+#### Database Schema
+##### ARDD
+
+| Column | Type | Description |
+| --- | --- | --- |
+| `crashid` | `character(13)` | Internal crash ID |
+| `state` | `character varying(3)` | State that the crash occured in |
+| `day` | `integer` | Day of the crash |
+| `month` | `character varying(10)` | Month of the crash (long name format) |
+| `year` | `integer` | Year of the crash |
+| `hour` | `integer` | Hour of the crash |
+| `minute` | `integer` | Minute of the crash |
+| `crashtype` | `character` varying(16) | Internal type of the crash |
+| `fatalities` | `integer` | Number of fatalities |
+| `bus` | `boolean` | Was a bus involved? |
+| `heavytruck` | `boolean` | Was a heavy truck involved? |
+| `articulatedtruck` | `boolean` | Was an articulated truck involved? |
+| `speedlimit` | `integer` | The speed limit of the crash |
+
+##### BOM Rainfall
+
+| Column | Type | Description |
+| --- | --- | --- |
+| `year` | `integer` | Year of the measurement |
+| `month` | `integer` | Month of the measurement (in integer form) |
+| `day` | `integer` | Day of the measurement |
+| `rainfall` | `double precision` | Amount of rainfall |
+| `period` | `integer` | Period measured |
+| `quality` | `character(1)` | Quality of data |
+
 #### Issues
+##### Date Formatting
+Looking at the above schema, you might notice: the `month` field of the rainfall table is
+an `integer` type, but `crashes.month` is a `varchar(10)`. `crashes.month` is a long month
+name, e.g. `January`, `February`.
+
+This was a problem. I had two different formats of data that were needed to do an
+SQL JOIN. Luckily, PostgreSQL has a very good set of date formatting commands.
+
+I decided to leave the tables as they were, and convert the data on the fly when doing the
+SQL JOIN. The following SQL functions will convert a date in long format to an integer:
+```postgres
+extract(MONTH from to_date(concat(crashes.month, ' 2000'), 'Month YYYY'))
+```
+
 ### Querying
 #### Issues
 ### Graphing
