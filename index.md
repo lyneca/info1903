@@ -15,7 +15,7 @@ a correlation between the two.
 - [Crash database legend](https://bitre.gov.au/statistics/safety/files/ARDD_Dictionary_V3.pdf) (pdf)
 - [Rain database](http://www.bom.gov.au/jsp/ncc/cdio/weatherData/av?p_display_type=dailyZippedDataFile&p_stn_num=086039&p_c=-1480557288&p_nccObsCode=136&p_startYear=2017) (csv)
 
-### Analysis
+### Analysis {#analysis}
 
 After setting up the data, I first graphed the rainfall over time and the crashes over time to see if I could spot any trends among the separate graphs:
 
@@ -59,8 +59,8 @@ I thought that this would help visualise the correlation, but it doesn't really 
 [graph3]: assets/rainfall_vs_deaths.png
 [graph4]: assets/fatalities_vs_date.png
 
-## Section II: Data Generation
-### Getting the data
+## Section II: Data Generation {#generation}
+### Getting the data {#obtaining}
 The website had two datasets available: one for each crash, and one for each fatality.
 I chose to use the one per crash, as I was not interested in statistics such as gender
 or age. However, the process required to obtain and store this data is available with the
@@ -80,7 +80,7 @@ I chose Victoria, as it is a small state with a weather station (Flemington stat
 somewhat near both the center of the state and the capital city, where I reasoned the
 most crashes would occur.
 
-### Storing in PostgreSQL
+### Storing in PostgreSQL {#postgres}
 #### Database Schema
 ##### `crashes` Table
 
@@ -126,10 +126,10 @@ SQL JOIN. The following SQL functions will convert a date in long format to an i
 extract(MONTH from to_date(concat(crashes.month, ' 2000'), 'Month YYYY'))
 ```
 
-### Querying
+### Querying {#querying}
 #### Issues
-### Graphing
+### Graphing {#graphing}
 #### Issues
-### Notebook
+### Notebook {#notebook}
 [Here](https://nbviewer.jupyter.org/github/lyneca/info1903/blob/gh-pages/INFO1903.ipynb)
 is the Jupyter Notebook that contains code for querying and visualising the data.
