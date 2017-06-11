@@ -50,7 +50,6 @@ a correlation between the two.
 After setting up the data, I first graphed the rainfall over time and the crashes over time to see if I could spot any trends among the separate graphs:
 
 #### Car Crashes per Month
----
 ![Graph of car crashes in Victoria over time][graph1]
 
 ---
@@ -62,7 +61,6 @@ deadly road accident in Australia's history.
 ([Wikipedia Article](https://en.wikipedia.org/wiki/Kempsey_bus_crash))
 
 #### Monthly Rainfall
----
 ![Graph of rainfall in Victoria over time][graph2]
 
 ---
@@ -72,7 +70,7 @@ There is an outlier around 2005, a heavy rain event.
 #### Crashes and Rainfall over Time
 
 After having graphed the data separately, I graphed them on top of each other to get a better idea at a correlation:
----
+
 ![Graph of car crashes and rainfall in Victoria over time][graph3]
 
 ---
@@ -80,10 +78,9 @@ This next graph is the same data but in a different style: the data points are t
 fatalities per month, but the rainfall is instead represented as the colour of the points.
 
 I thought that this would help visualise the correlation, but it doesn't really work.
----
+
 ![Graph of car crashes in Victoria over time with rainfall colourmap][graph4]
 
----
 [graph1]: assets/crashes_over_time.png
 [graph2]: assets/rainfall_over_time.png
 [graph3]: assets/rainfall_vs_deaths.png
