@@ -52,6 +52,7 @@ After setting up the data, I first graphed the rainfall over time and the crashe
 #### Car Crashes per Month
 ---
 ![Graph of car crashes in Victoria over time][graph1]
+
 ---
 This graph shows that the average number of fatal car crashes per month has
 decreased since 1989, something which I expected to see.
@@ -63,6 +64,7 @@ deadly road accident in Australia's history.
 #### Monthly Rainfall
 ---
 ![Graph of rainfall in Victoria over time][graph2]
+
 ---
 There is an outlier around 2005, a heavy rain event.
 ([BOM report](https://bom.gov.au/climate/annual_sum/2005/page13-15.pdf))
@@ -72,6 +74,7 @@ There is an outlier around 2005, a heavy rain event.
 After having graphed the data separately, I graphed them on top of each other to get a better idea at a correlation:
 ---
 ![Graph of car crashes and rainfall in Victoria over time][graph3]
+
 ---
 This next graph is the same data but in a different style: the data points are the
 fatalities per month, but the rainfall is instead represented as the colour of the points.
@@ -79,6 +82,7 @@ fatalities per month, but the rainfall is instead represented as the colour of t
 I thought that this would help visualise the correlation, but it doesn't really work.
 ---
 ![Graph of car crashes in Victoria over time with rainfall colourmap][graph4]
+
 ---
 [graph1]: assets/crashes_over_time.png
 [graph2]: assets/rainfall_over_time.png
