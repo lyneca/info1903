@@ -89,6 +89,32 @@ I thought that this would help visualise the correlation, but it doesn't really 
 
 ## Section II: Data Generation
 ### Getting the data
+The website had two datasets available: one for each crash, and one for each fatality.
+I chose to use the one per crash, as I was not interested in statistics such as gender
+or age. However, the process required to obtain and store this data is available with the
+methods for the other files.
+
+---
+
+Due to the nature of the weather, I decided that getting the "total national rainfall"
+was not precise enough. Because the crash data sorted by state (and did not give a
+precise location), I decided to pick a state and use only crash data from that state.
+
+The BOM data provides rainfall data for every weather station back to the 19th century.
+As my crash data location had state-level precision, I reasoned that if I chose a weather
+station in the middle of a state, it would give me the best approximate for "average
+statewide weather".
+
+I chose Victoria, as it is a small state with a weather station (Flemington station)
+somewhat near both the center of the state and the capital city, where I reasoned the
+most crashes would occur.
+
 ### Storing in PostgreSQL
+#### Issues
 ### Querying
+#### Issues
 ### Graphing
+#### Issues
+### Notebook
+[Here](https://nbviewer.jupyter.org/github/lyneca/info1903/blob/gh-pages/INFO1903.ipynb)
+is the Jupyter Notebook that contains code for querying and visualising the data.
