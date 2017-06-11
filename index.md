@@ -20,21 +20,31 @@ a correlation between the two.
 
 | Column | Type | Description |
 | --- | --- | --- |
- crashid | character(13) | Internal crash ID |
- state | character varying(3) | State that the crash occured in |
- day | integer | Day of the crash |
- month | character varying(10) | Month of the crash (long name format) |
- year | integer | Year of the crash |
- hour | integer | Hour of the crash |
- minute | integer | Minute of the crash |
- crashtype | character varying(16) | Internal type of the crash |
- fatalities | integer | Number of fatalities |
- bus | boolean | Was a bus involved? |
- heavytruck | boolean | Was a heavy truck involved? |
- articulatedtruck | boolean | Was an articulated truck involved? |
- speedlimit | integer | The speed limit of the crash |
+| crashid | character(13) | Internal crash ID |
+| state | character varying(3) | State that the crash occured in |
+| day | integer | Day of the crash |
+| month | character varying(10) | Month of the crash (long name format) |
+| year | integer | Year of the crash |
+| hour | integer | Hour of the crash |
+| minute | integer | Minute of the crash |
+| crashtype | character varying(16) | Internal type of the crash |
+| fatalities | integer | Number of fatalities |
+| bus | boolean | Was a bus involved? |
+| heavytruck | boolean | Was a heavy truck involved? |
+| articulatedtruck | boolean | Was an articulated truck involved? |
+| speedlimit | integer | The speed limit of the crash |
 
 ##### BOM Rainfall
+
+| Column | Type | Description |
+| --- | --- | --- |
+| year | integer | Year of the measurement |
+| month | integer | Month of the measurement (in integer form) |
+| day | integer | Day of the measurement |
+| rainfall | double precision | Amount of rainfall |
+| period | integer | Period measured |
+| quality | character(1) | Quality of data |
+
 ### Analysis
 ## Section II: Data Generation
 ### Getting the data
