@@ -47,14 +47,21 @@ a correlation between the two.
 
 ### Analysis
 After setting up the data, I first graphed the rainfall over time and the crashes over time to see if I could spot any trends among the separate graphs:
+#### Car Crashes per Month
 ![Graph of car crashes in Victoria over time](assets/crashes_over_time.png)
 As you can see, the number of car crashes per month has reduced significantly.
+
+The spike at the start is because of the Kempsey Bus Crash, cited as the most deadly road accident in Australia's history. ([Wikipedia Article](https://en.wikipedia.org/wiki/Kempsey_bus_crash))
+#### Monthly Rainfall
 ![Graph of rainfall in Victoria over time](assets/rainfall_over_time.png)
+There is an outlier around 2005, a heavy rain event. ([BOM report](https://bom.gov.au/climate/annual_sum/2005/page13-15.pdf))
+
+#### Crashes and Rainfall over Time
+After having graphed the data separately, I graphed them on top of each other to get a better idea at a correlation:
+![Graph of car crashes and rainfall in Victoria over time](assets/rainfall_vs_deaths.png)
 
 ![Graph of car crashes in Victoria over time with rainfall colourmap](assets/fatalities_vs_date.png)
 
-After that, I graphed the rainfall and crashes on the same graph:
-![Graph of car crashes and rainfall in Victoria over time](assets/rainfall_vs_deaths.png)
 
 ## Section II: Data Generation
 ### Getting the data
