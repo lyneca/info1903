@@ -82,7 +82,7 @@ most crashes would occur.
 
 ### Storing in PostgreSQL
 #### Database Schema
-##### `crashes`
+##### `crashes` Table
 
 | Column | Type | Description |
 | --- | --- | --- |
@@ -100,7 +100,7 @@ most crashes would occur.
 | `articulatedtruck` | `boolean` | Was an articulated truck involved? |
 | `speedlimit` | `integer` | The speed limit of the crash |
 
-##### `rainfall`
+##### `rainfall` Table
 
 | Column | Type | Description |
 | --- | --- | --- |
