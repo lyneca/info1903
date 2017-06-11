@@ -17,6 +17,23 @@ a correlation between the two.
 
 #### Data Description
 ##### ARDD
+
+| Column | Type | Description |
+| --- | --- | --- |
+ crashid | character(13) | Internal crash ID |
+ state | character varying(3) | State that the crash occured in |
+ day | integer | Day of the crash |
+ month | character varying(10) | Month of the crash (long name format) |
+ year | integer | Year of the crash |
+ hour | integer | Hour of the crash |
+ minute | integer | Minute of the crash |
+ crashtype | character varying(16) | Internal type of the crash |
+ fatalities | integer | Number of fatalities |
+ bus | boolean | Was a bus involved? |
+ heavytruck | boolean | Was a heavy truck involved? |
+ articulatedtruck | boolean | Was an articulated truck involved? |
+ speedlimit | integer | The speed limit of the crash |
+
 ##### BOM Rainfall
 ### Analysis
 ## Section II: Data Generation
