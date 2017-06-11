@@ -48,6 +48,8 @@ a correlation between the two.
 ### Analysis
 After setting up the data, I first graphed the rainfall over time and the crashes over time to see if I could spot any trends among the separate graphs:
 
+After that, I graphed the rainfall and crashes on the same graph:
+{% include graph1.html %}
 ## Section II: Data Generation
 ### Getting the data
 ### Storing in PostgreSQL
