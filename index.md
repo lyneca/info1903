@@ -47,9 +47,15 @@ a correlation between the two.
 
 ### Analysis
 After setting up the data, I first graphed the rainfall over time and the crashes over time to see if I could spot any trends among the separate graphs:
+![Graph of car crashes in Victoria over time](assets/crashes_over_time.png)
+As you can see, the number of car crashes per month has reduced significantly.
+![Graph of rainfall in Victoria over time](assets/rainfall_over_time.png)
+
+![Graph of car crashes in Victoria over time with rainfall colourmap](assets/fatalities_vs_date.png)
 
 After that, I graphed the rainfall and crashes on the same graph:
-![Graph of rainfall and car crashes in Victoria over time](assets/fatalities_vs_date.png)
+![Graph of car crashes and rainfall in Victoria over time](assets/rainfall_vs_deaths.png)
+
 ## Section II: Data Generation
 ### Getting the data
 ### Storing in PostgreSQL
