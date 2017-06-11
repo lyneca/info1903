@@ -21,9 +21,9 @@ a correlation between the two.
 | Column | Type | Description |
 | --- | --- | --- |
 | `crashid` | `character(13)` | Internal crash ID |
-| `state` | `character` varying(3) | State that the crash occured in |
+| `state` | `character varying(3)` | State that the crash occured in |
 | `day` | `integer` | Day of the crash |
-| `month` | `character` varying(10) | Month of the crash (long name format) |
+| `month` | `character varying(10)` | Month of the crash (long name format) |
 | `year` | `integer` | Year of the crash |
 | `hour` | `integer` | Hour of the crash |
 | `minute` | `integer` | Minute of the crash |
@@ -41,11 +41,13 @@ a correlation between the two.
 | `year` | `integer` | Year of the measurement |
 | `month` | `integer` | Month of the measurement (in integer form) |
 | `day` | `integer` | Day of the measurement |
-| `rainfall` | `double` precision | Amount of rainfall |
+| `rainfall` | `double precision` | Amount of rainfall |
 | `period` | `integer` | Period measured |
 | `quality` | `character(1)` | Quality of data |
 
 ### Analysis
+After setting up the data, I first graphed the rainfall over time and the crashes over time to see if I could spot any trends among the separate graphs:
+
 ## Section II: Data Generation
 ### Getting the data
 ### Storing in PostgreSQL
