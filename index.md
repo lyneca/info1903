@@ -12,7 +12,7 @@ a correlation between the two.
 
 ### Data Sources {#sources}
 #### Online Sources
- - [The Australian Road Deaths Database](http://data.gov.au/dataset/australian-road-deaths-database/resource/ca07c8e3-672f-4826-a6e5-83fd7127ae0b)) which contains information about the crashes and the fatalities.
+ - [The Australian Road Deaths Database](http://data.gov.au/dataset/australian-road-deaths-database/resource/ca07c8e3-672f-4826-a6e5-83fd7127ae0b) which contains information about the crashes and the fatalities.
  - [The Bureau of Meteorology's Daily Rainfall Data](http://www.bom.gov.au/jsp/ncc/cdio/weatherData/av?p_nccObsCode=136&p_display_type=dailyDataFile&p_startYear=&p_c=&p_stn_num=086039) for the station of Flemington in Victoria.
 
 #### Download Links: {#downloads}
@@ -69,13 +69,24 @@ In the rainfall/time graph, there is an outlier around 2005 - a heavy rain event
 
 #### Results {#results}
 There did seem to be some correlation between rainfall and crash rates, just by looking at the graph.
+However, the correlation is vague, and I decided that graphing over time wasn't going to work.
+
 After doing some calculations (described in Section II), I generated this pie chart:
 
 [![Pie chart showing more rainy crashes than dry ones][pie]][pie]
 
-This chart shows that there are indeed more crashes when it is raining then there are dry crashes.
+This chart shows that there are indeed more crashes when it is raining then there are dry crashes,
+if only slightly. This was pretty much what I expected, although I expected the difference to be
+more prominent.
 
 #### Further Research {#further-research}
+The obvious option for further research is to expand the amount of data analysed. I only examined
+Victorian data; you could easily expand the queries to visualise data from other states. I don't know
+what governmental data is provided overseas, but that is definitely an option for further research.
+
+The crash data also gave information on age and gender, which is another path of research you could
+take.
+
 ## Section II: Data Generation {#generation}
 ### Getting the data {#obtaining}
 The website had two datasets available: one for each crash, and one for each fatality.
@@ -193,7 +204,7 @@ very different side by side.
 These graphs showed some correlation, but I decided to do some further calculations to
 figure out if there really was a connection.
 
-I created a list of ints from the datasets. Each day had a list item according to this
+I created a list of ints from the datasets. Each day had a corresponding list item according to this
 key:
  - If there was no crash: 0
  - If there was a crash and it wasn't raining: 1
@@ -208,17 +219,20 @@ I had _many_ problems with this part; thinking about how to manipulate the data 
 challenging part of the whole project.
 
 ##### Invalid Graphs/Data
- - At first I was graphing the number of fatalities, instead of the number of crashes. This wouldn't
-   have made much of a difference, but still an error that might have affected the validity when
-   used on other datasets.
+ - My first graphs were not very successful. I originally graphed fatalities on the y axis vs
+   the amount of rainfall on the x axis. There was no correlation and I soon realised that I was
+   graphing the wrong properties.
+ - I was also originally graphing the number of fatalities, instead of the number of crashes. This
+   wouldn't have made much of a difference, but still an error that might have affected the validity
+   when used on other datasets.
  - A couple of times I forgot to limit my queries to Victorian crashes only, and this turned out some
    graphs that (although interesting) were not valid.
- - [Forgetting to sort my data before graphing](assets/blooper1.png)
+ - [Forgetting to sort my data before graphing.](assets/blooper1.png)
 
 ##### Library Problems
  - It took a bit of time to understand how psycopg2 works (and also how to pronounce 'psycopg2')
  - Matplotlib and PyPlot are _huge_, and learning how each part integrates with each other part,
-   and the other parts of the SciPy stack, was challenging
+   and the other parts of the SciPy stack, was challenging.
 
 ### Notebook {#notebook}
 [Here](https://nbviewer.jupyter.org/github/lyneca/info1903/blob/gh-pages/INFO1903.ipynb)
