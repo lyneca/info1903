@@ -190,9 +190,18 @@ I at first graphed the number of fatalities vs rainfall, as opposed to the numbe
 rainfall. I then realised that that was not the graph that I wanted, although the graphs aren't
 very different side by side.
 
-These graphs showed some correlation, but I decided to do some further calculations to figure out if
-there really was a connection.
+These graphs showed some correlation, but I decided to do some further calculations to
+figure out if there really was a connection.
 
+I created a list of ints from the datasets. Each day had a list item according to this
+key:
+ - If there was no crash: 0
+ - If there was a crash and it wasn't raining: 1
+ - If there was a crash and it was raining: 2
+
+I then graphed these and labelled accordingly to get the pie chart that I used as my
+final result:
+[![Final Pie chart][pie]][pie]
 
 #### Issues
 ### Notebook {#notebook}
