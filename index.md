@@ -41,7 +41,7 @@ After having graphed the data separately, I graphed them on top of each other to
 [![Graph of car crashes and rainfall in Victoria over time][graph3]][graph3]
 
 ---
-This final graph is the same data but in a different style: the data points are the
+This final graph is the same crashes/rainfall data but in a different style: the data points are the
 fatalities per month, but the rainfall is instead represented as the colour of the points.
 
 I thought that this would help visualise the correlation, but it doesn't really work.
@@ -66,9 +66,15 @@ In the rainfall/time graph, there is an outlier around 2005 - a heavy rain event
 
 ---
 
-There did seem to be some correlation
 
 #### Results {#results}
+There did seem to be some correlation between rainfall and crash rates, just by looking at the graph.
+After doing some calculations (described in Section II), I generated this pie chart:
+
+[![Pie chart showing more rainy crashes than dry ones][pie]][pie]
+
+This chart shows that there are indeed more crashes when it is raining then there are dry crashes.
+
 #### Further Research {#further-research}
 ## Section II: Data Generation {#generation}
 ### Getting the data {#obtaining}
@@ -184,6 +190,10 @@ I at first graphed the number of fatalities vs rainfall, as opposed to the numbe
 rainfall. I then realised that that was not the graph that I wanted, although the graphs aren't
 very different side by side.
 
+These graphs showed some correlation, but I decided to do some further calculations to figure out if
+there really was a connection.
+
+
 #### Issues
 ### Notebook {#notebook}
 [Here](https://nbviewer.jupyter.org/github/lyneca/info1903/blob/gh-pages/INFO1903.ipynb)
@@ -193,3 +203,4 @@ is the Jupyter Notebook that contains code for querying and visualising the data
 [graph2]: assets/rainfall_over_time.png
 [graph3]: assets/rainfall_vs_deaths.png
 [graph4]: assets/fatalities_vs_date.png
+[pie]:    assets/pie.png
