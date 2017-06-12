@@ -159,6 +159,23 @@ I eventually added a `and crashes.state = [state]` line in, replacing `[state]` 
 state I was querying.
 
 ### Graphing {#graphing}
+Graphing was the stage of the project that took the longest. Learning and becoming 
+familiar with Matplotlib and the psycopg2 postgres library for python took some time,
+but the majority of my time was spent thinking about how I could organise my data
+and then graph it in the best format.
+
+The psycopg2 library connects to your database (using `psycopg2.connect(dbname, user)`)
+and gives you a cursor. The cursor is the object from which you can perform queries on
+your data, and it acts as a proxy between your Python code and your database.
+
+The first issue I had was that `cursor.execute('query')` wasn't returning anything.
+I later learnt that `cursor.execute()` does not return data, just executes the query,
+and that I had to `cursor.fetchall()` to recieve the data in a list of tuples.
+
+I used _many_ list comprehensions, and I am very glad that I was already comfortable
+with how to use them from previous Python/Haskell experience. List comprehensions allowed
+me to filter and modify lists in place, as opposed to having to write a full for loop for
+each one.
 
 #### Issues
 ### Notebook {#notebook}
