@@ -15,7 +15,7 @@ a correlation between the two.
 - [Crash database legend](https://bitre.gov.au/statistics/safety/files/ARDD_Dictionary_V3.pdf) (pdf)
 - [Rain database](http://www.bom.gov.au/jsp/ncc/cdio/weatherData/av?p_display_type=dailyZippedDataFile&p_stn_num=086039&p_c=-1480557288&p_nccObsCode=136&p_startYear=2017) (csv)
 
-### Analysis {#analysis}
+### Graphs {#graphs}
 
 After setting up the data, I first graphed the rainfall over time and the crashes over time to see if I could spot any trends among the separate graphs:
 
@@ -23,19 +23,11 @@ After setting up the data, I first graphed the rainfall over time and the crashe
 [![Graph of car crashes in Victoria over time][graph1]][graph1]
 
 ---
-This graph shows that the average number of fatal car crashes per month has
-decreased since 1989, something which I expected to see.
-
-The spike at the start is because of the Kempsey Bus Crash, cited as the most
-deadly road accident in Australia's history.
-([Wikipedia Article](https://en.wikipedia.org/wiki/Kempsey_bus_crash))
 
 #### Monthly Rainfall
 [![Graph of rainfall in Victoria over time][graph2]][graph2]
 
 ---
-There is an outlier around 2005, a heavy rain event.
-([BOM report](https://bom.gov.au/climate/annual_sum/2005/page13-15.pdf))
 
 #### Crashes and Rainfall over Time
 
@@ -52,13 +44,24 @@ I thought that this would help visualise the correlation, but it doesn't really 
 [![Graph of car crashes in Victoria over time with rainfall colourmap][graph4]][graph4]
 
 
-***TODO***: actually do some analysis
+### Discussion {#discussion}
+#### Trends {#trends}
+The crashes/time graph shows that the average number of fatal car crashes per month has
+decreased since 1989, something which I expected to see. This is most likely due to an
+increase in safetyy
 
-[graph1]: assets/crashes_over_time.png
-[graph2]: assets/rainfall_over_time.png
-[graph3]: assets/rainfall_vs_deaths.png
-[graph4]: assets/fatalities_vs_date.png
+[![Spike in crashes over time][graph1_zoom]][graph1_zoom]
+The spike at the start is because of the Kempsey Bus Crash, cited as the most
+deadly road accident in Australia's history.
+([Wikipedia Article](https://en.wikipedia.org/wiki/Kempsey_bus_crash))
 
+---
+
+In the rainfall/time graph, there is an outlier around 2005 - a heavy rain event.
+([BOM report](https://bom.gov.au/climate/annual_sum/2005/page13-15.pdf))
+
+#### Results {#results}
+#### Further Research {#further-research}
 ## Section II: Data Generation {#generation}
 ### Getting the data {#obtaining}
 The website had two datasets available: one for each crash, and one for each fatality.
@@ -76,9 +79,9 @@ As my crash data location had state-level precision, I reasoned that if I chose 
 station in the middle of a state, it would give me the best approximate for "average
 statewide weather".
 
-I chose Victoria, as it is a small state with a weather station (Flemington station)
-somewhat near both the center of the state and the capital city, where I reasoned the
-most crashes would occur.
+I chose Victoria, as it is a relatively small state with a weather station
+(Flemington station) somewhat near both the center of the state and the capital city,
+where I reasoned the most crashes would occur.
 
 ### Storing in PostgreSQL {#postgres}
 #### Database Schema
@@ -111,6 +114,12 @@ most crashes would occur.
 | `period` | `integer` | Period measured |
 | `quality` | `character(1)` | Quality of data |
 
+#### Entering into database
+
+After creating the tables, I needed to copy the data from the `.csv` files.
+I tried the usual `COPY [table name] FROM csv WITH CSV HEADER;` command, but it
+complained about file permissions. After some reading of Postgres documentation
+
 #### Issues
 ##### Date Formatting
 Looking at the above schema, you might notice: the `month` field of the rainfall table is
@@ -127,9 +136,18 @@ extract(MONTH from to_date(concat(crashes.month, ' 2000'), 'Month YYYY'))
 ```
 
 ### Querying {#querying}
+
+
 #### Issues
 ### Graphing {#graphing}
+
 #### Issues
 ### Notebook {#notebook}
 [Here](https://nbviewer.jupyter.org/github/lyneca/info1903/blob/gh-pages/INFO1903.ipynb)
 is the Jupyter Notebook that contains code for querying and visualising the data.
+
+[graph1]: assets/crashes_over_time.png
+[graph1_zoom]: assets/crashes_over_time_zoom.png
+[graph2]: assets/rainfall_over_time.png
+[graph3]: assets/rainfall_vs_deaths.png
+[graph4]: assets/fatalities_vs_date.png
