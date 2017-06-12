@@ -67,7 +67,7 @@ In the rainfall/time graph, there is an outlier around 2005 - a heavy rain event
 There did seem to be some correlation between rainfall and crash rates, just by looking at the graph.
 However, the correlation is vague, and I decided that graphing over time wasn't going to work.
 
-After doing some calculations (described in Section II), I generated this pie chart:
+After doing some calculations (described in [Section II](#graphing)), I generated this pie chart:
 
 [![Pie chart showing more rainy crashes than dry ones][pie]][pie]
 
