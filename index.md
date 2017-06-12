@@ -56,6 +56,7 @@ decreased since 1989, something which I expected to see. This is most likely due
 increase in safetyy
 
 [![Spike in crashes over time][graph1_zoom]][graph1_zoom]
+
 The spike at the start is because of the Kempsey Bus Crash, cited as the most
 deadly road accident in Australia's history.
 ([Wikipedia Article](https://en.wikipedia.org/wiki/Kempsey_bus_crash))
