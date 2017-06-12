@@ -1,3 +1,8 @@
+---
+title: about
+
+---
+
 # INFO1903 Project
 ## Section I: Data analysis
 ### Situation {#situation}
@@ -118,7 +123,10 @@ where I reasoned the most crashes would occur.
 
 After creating the tables, I needed to copy the data from the `.csv` files.
 I tried the usual `COPY [table name] FROM csv WITH CSV HEADER;` command, but it
-complained about file permissions. After some reading of Postgres documentation
+complained about file permissions. After some reading of Postgres documentation (and
+some helpful StackOverflow articles), I found that Postgres provides the `\copy` command
+within the `psql` prompt. Fixing this bug was as simple as putting a backslash in front
+of `copy`, and it had the correct permissions to import.
 
 #### Issues
 ##### Date Formatting
@@ -131,14 +139,25 @@ SQL JOIN. Luckily, PostgreSQL has a very good set of date formatting commands.
 
 I decided to leave the tables as they were, and convert the data on the fly when doing the
 SQL JOIN. The following SQL functions will convert a date in long format to an integer:
-```postgres
+```sql
 extract(MONTH from to_date(concat(crashes.month, ' 2000'), 'Month YYYY'))
 ```
 
 ### Querying {#querying}
+The queries I used were fairly simple. I mostly used implicit joining to join the
+rainfall and crashes databases (with the above `extract` function to integrate the dates:
+```sql
+select rainfall, fatalities, rainfall.year, rainfall.month, rainfall.day 
+  from crashes, rainfall                                                
+ where rainfall.year = crashes.year                                      
+   and rainfall.month = extract(MONTH from to_date(concat(crashes.month, ' 2000'), 'Month YYYY'))                                                
+   and rainfall.day = crashes.day
+```
+This query selects rainfall, fatalities, and date from the database¸ joining on dates.
 
+I eventually added a `and crashes.state = [state]` line in, replacing `[state]` with the
+state I was querying.
 
-#### Issues
 ### Graphing {#graphing}
 
 #### Issues
