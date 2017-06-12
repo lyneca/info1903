@@ -214,6 +214,7 @@ challenging part of the whole project.
  - A couple of times I forgot to limit my queries to Victorian crashes only, and this turned out some
    graphs that (although interesting) were not valid.
  - [Forgetting to sort my data before graphing](assets/blooper1.png)
+
 ##### Library Problems
  - It took a bit of time to understand how psycopg2 works (and also how to pronounce 'psycopg2')
  - Matplotlib and PyPlot are _huge_, and learning how each part integrates with each other part,
