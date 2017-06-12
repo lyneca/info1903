@@ -81,7 +81,8 @@ Victorian data; you could easily expand the queries to visualise data from other
 what governmental data is provided overseas, but that is definitely an option for further research.
 
 The crash data also gave information on age and gender, which is another path of research you could
-take.
+take, and of special interest could be the speed limit field, to see if there are any interesting
+relationships there.
 
 ## Section II: Data Generation {#generation}
 ### Getting the data {#obtaining}
@@ -138,7 +139,7 @@ where I reasoned the most crashes would occur.
 #### Entering into database
 
 After creating the tables, I needed to copy the data from the `.csv` files.
-I tried the usual `COPY [table name] FROM csv WITH CSV HEADER;` command, but it
+I tried the usual `COPY [table name] FROM [csv file] WITH CSV HEADER;` command, but it
 complained about file permissions. After some reading of Postgres documentation (and
 some helpful StackOverflow articles), I found that Postgres provides the `\copy` command
 within the `psql` prompt. Fixing this bug was as simple as putting a backslash in front
