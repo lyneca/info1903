@@ -12,13 +12,13 @@ a correlation between the two.
 
 ### Data Sources {#sources}
 #### Online Sources
-- [The Australian Road Deaths Database](http://data.gov.au/dataset/australian-road-deaths-database/resource/ca07c8e3-672f-4826-a6e5-83fd7127ae0b)) which contains information about the crashes and the fatalities.
-- [The Bureau of Meteorology's Daily Rainfall Data](http://www.bom.gov.au/jsp/ncc/cdio/weatherData/av?p_nccObsCode=136&p_display_type=dailyDataFile&p_startYear=&p_c=&p_stn_num=086039) for the station of Flemington in Victoria.
+ - [The Australian Road Deaths Database](http://data.gov.au/dataset/australian-road-deaths-database/resource/ca07c8e3-672f-4826-a6e5-83fd7127ae0b)) which contains information about the crashes and the fatalities.
+ - [The Bureau of Meteorology's Daily Rainfall Data](http://www.bom.gov.au/jsp/ncc/cdio/weatherData/av?p_nccObsCode=136&p_display_type=dailyDataFile&p_startYear=&p_c=&p_stn_num=086039) for the station of Flemington in Victoria.
 
 #### Download Links: {#downloads}
-- [Crash database](https://bitre.gov.au/statistics/safety/files/Fatal_Crashes_Feb2017.csv) (csv)
-- [Crash database legend](https://bitre.gov.au/statistics/safety/files/ARDD_Dictionary_V3.pdf) (pdf)
-- [Rain database](http://www.bom.gov.au/jsp/ncc/cdio/weatherData/av?p_display_type=dailyZippedDataFile&p_stn_num=086039&p_c=-1480557288&p_nccObsCode=136&p_startYear=2017) (csv)
+ - [Crash database](https://bitre.gov.au/statistics/safety/files/Fatal_Crashes_Feb2017.csv) (csv)
+ - [Crash database legend](https://bitre.gov.au/statistics/safety/files/ARDD_Dictionary_V3.pdf) (pdf)
+ - [Rain database](http://www.bom.gov.au/jsp/ncc/cdio/weatherData/av?p_display_type=dailyZippedDataFile&p_stn_num=086039&p_c=-1480557288&p_nccObsCode=136&p_startYear=2017) (csv)
 
 ### Graphs {#graphs}
 
@@ -204,6 +204,21 @@ final result:
 [![Final Pie chart][pie]][pie]
 
 #### Issues
+I had _many_ problems with this part; thinking about how to manipulate the data was the most
+challenging part of the whole project.
+
+##### Invalid Graphs/Data
+ - At first I was graphing the number of fatalities, instead of the number of crashes. This wouldn't
+   have made much of a difference, but still an error that might have affected the validity when
+   used on other datasets.
+ - A couple of times I forgot to limit my queries to Victorian crashes only, and this turned out some
+   graphs that (although interesting) were not valid.
+ - [Forgetting to sort my data before graphing](assets/blooper1.png)
+##### Library Problems
+ - It took a bit of time to understand how psycopg2 works (and also how to pronounce 'psycopg2')
+ - Matplotlib and PyPlot are _huge_, and learning how each part integrates with each other part,
+   and the other parts of the SciPy stack, was challenging
+
 ### Notebook {#notebook}
 [Here](https://nbviewer.jupyter.org/github/lyneca/info1903/blob/gh-pages/INFO1903.ipynb)
 is the Jupyter Notebook that contains code for querying and visualising the data.
