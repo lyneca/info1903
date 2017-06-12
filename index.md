@@ -53,9 +53,7 @@ I thought that this would help visualise the correlation, but it doesn't really 
 #### Trends {#trends}
 The crashes/time graph shows that the average number of fatal car crashes per month has
 decreased since 1989, something which I expected to see. This is most likely due to an
-increase in safetyy
-
-[![Spike in crashes over time][graph1_zoom]][graph1_zoom]
+increase in car safety, road rules, and law enforcement since 1989.
 
 The spike at the start is because of the Kempsey Bus Crash, cited as the most
 deadly road accident in Australia's history.
@@ -65,6 +63,10 @@ deadly road accident in Australia's history.
 
 In the rainfall/time graph, there is an outlier around 2005 - a heavy rain event.
 ([BOM report](https://bom.gov.au/climate/annual_sum/2005/page13-15.pdf))
+
+---
+
+There did seem to be some correlation
 
 #### Results {#results}
 #### Further Research {#further-research}
@@ -80,7 +82,7 @@ Due to the nature of the weather, I decided that getting the "total national rai
 was not precise enough. Because the crash data sorted by state (and did not give a
 precise location), I decided to pick a state and use only crash data from that state.
 
-The BOM data provides rainfall data for every weather station back to the 19th century.
+The BOM data provides rainfall data for every weather station back to the 19th  century.
 As my crash data location had state-level precision, I reasoned that if I chose a weather
 station in the middle of a state, it would give me the best approximate for "average
 statewide weather".
@@ -178,13 +180,16 @@ with how to use them from previous Python/Haskell experience. List comprehension
 me to filter and modify lists in place, as opposed to having to write a full for loop for
 each one.
 
+I at first graphed the number of fatalities vs rainfall, as opposed to the number of crashes vs
+rainfall. I then realised that that was not the graph that I wanted, although the graphs aren't
+very different side by side.
+
 #### Issues
 ### Notebook {#notebook}
 [Here](https://nbviewer.jupyter.org/github/lyneca/info1903/blob/gh-pages/INFO1903.ipynb)
 is the Jupyter Notebook that contains code for querying and visualising the data.
 
 [graph1]: assets/crashes_over_time.png
-[graph1_zoom]: assets/crashes_over_time_zoom.png
 [graph2]: assets/rainfall_over_time.png
 [graph3]: assets/rainfall_vs_deaths.png
 [graph4]: assets/fatalities_vs_date.png
