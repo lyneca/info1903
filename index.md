@@ -59,12 +59,8 @@ The spike at the start is because of the Kempsey Bus Crash, cited as the most
 deadly road accident in Australia's history.
 ([Wikipedia Article](https://en.wikipedia.org/wiki/Kempsey_bus_crash))
 
----
-
 In the rainfall/time graph, there is an outlier around 2005 - a heavy rain event.
 ([BOM report](https://bom.gov.au/climate/annual_sum/2005/page13-15.pdf))
-
----
 
 
 #### Results {#results}
